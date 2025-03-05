@@ -1,0 +1,62 @@
+services:
+  #! nginx
+  nginx:
+    image: "nginx:latest"
+    depends_on:
+      alpha_app:
+        condition: service_started
+      beta_app:
+        condition: service_started
+      dashboard:
+        condition: service_started
+
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:rw
+    container_name: nginx
+    ports:
+      - "8080:8080"
+    networks:
+      - main
+
+  beta_app:
+    build: backend/
+    container_name: Beta
+    hostname: beta_app
+    networks:
+      - main
+  alpha_app:
+    build: backend/
+    container_name: Alpha
+    hostname: alpha_app
+    networks:
+      - main
+
+  connector:
+    build: connector/
+    depends_on:
+      mock:
+        condition: service_started
+      nginx:
+        condition: service_started
+    networks:
+      - main
+
+  mock:
+    build: mock_ms/
+    networks:
+      - main
+  #! DASHBOARD
+  dashboard:
+    build: dashboard/
+    depends_on:
+      alpha_app:
+        condition: service_started
+      beta_app:
+        condition: service_started
+    ports:
+      - 3000:3000
+    networks:
+      - main
+
+networks:
+  main:

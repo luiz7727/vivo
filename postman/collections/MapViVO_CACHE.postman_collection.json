@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "fd3dc89c-3f2b-4a8f-a4bb-b0026256e4d6",
+		"name": "MapViVO_CACHE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34847131"
+	},
+	"item": [
+		{
+			"name": "Add Content",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"contents\": {\r\n        \"descriptions\": [\r\n            {\r\n                \"text\": \"Speak save week step.\"\r\n            }\r\n        ],\r\n        \"id\": \"12345\",\r\n        \"identifiers\": [\r\n            \"756.293.5250\"\r\n        ],\r\n        \"product_name\": \"direction\",\r\n        \"product_type\": \"bundle\",\r\n        \"start_date\": \"2021-03-30T01:40:13\",\r\n        \"status\": \"cancelled\",\r\n        \"sub_products\": [\r\n            {\r\n                \"descriptions\": [\r\n                    {\r\n                        \"text\": \"Use land less.\"\r\n                    }\r\n                ],\r\n                \"id\": \"12345\",\r\n                \"identifiers\": [\r\n                    \"343.699.6066\"\r\n                ],\r\n                \"product_name\": \"baby\",\r\n                \"product_type\": \"internet\",\r\n                \"start_date\": \"2023-07-19T19:12:02\",\r\n                \"status\": \"cancelled\",\r\n                \"sub_products\": [],\r\n                \"subscription_type\": \"control\"\r\n            }\r\n        ],\r\n        \"subscription_type\": \"control\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cache/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cache",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cache/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cache",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/159/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"159",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

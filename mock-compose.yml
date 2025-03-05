@@ -1,0 +1,5 @@
+services:
+  fibra_mock:
+  mobile_mock:
+  television_mock:
+  landline_mock:

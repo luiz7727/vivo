@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "6d838c1c-668b-4ea2-a660-ae727be8d36f",
+		"name": "MapViVO_USAGE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34847131"
+	},
+	"item": [
+		{
+			"name": "API_USAGE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/usage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"usage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API_PING",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/ping/www.google.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ping",
+						"www.google.com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

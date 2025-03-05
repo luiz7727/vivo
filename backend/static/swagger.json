@@ -1,0 +1,344 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "MapiVIVO"
+  },
+  "basePath": "/",
+  "paths": {
+    "/dns/all": {
+      "get": {
+        "summary": "Get all DNS entries",
+        "responses": {
+          "200": {
+            "description": "A list of DNS entries"
+          },
+          "404": {
+            "description": "No entries found"
+          }
+        }
+      }
+    },
+    "/dns/search/{produto}": {
+      "get": {
+        "summary": "Search for a DNS entry",
+        "parameters": [
+          {
+            "name": "produto",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Product to search"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Entry found"
+          },
+          "404": {
+            "description": "Entry not found"
+          }
+        }
+      }
+    },
+    "/dns/add": {
+      "post": {
+        "summary": "Add a DNS entry",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "address": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "DNS entry added"
+          },
+          "404": {
+            "description": "Failed to add DNS entry"
+          }
+        }
+      }
+    },
+    "/dns/delete": {
+      "delete": {
+        "summary": "Delete a DNS entry",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "ID of the DNS entry"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "DNS entry deleted"
+          },
+          "404": {
+            "description": "Failed to delete DNS entry"
+          }
+        }
+      }
+    },
+    "/dns/names": {
+      "get": {
+        "summary": "Get all product names",
+        "responses": {
+          "200": {
+            "description": "A list of product names"
+          },
+          "404": {
+            "description": "No product names found"
+          }
+        }
+      }
+    },
+    "/cache/all": {
+      "get": {
+        "summary": "Get all cache entries",
+        "responses": {
+          "200": {
+            "description": "Cache entries found"
+          },
+          "404": {
+            "description": "No cache entries"
+          }
+        }
+      }
+    },
+    "/users/{user_id}/products": {
+      "get": {
+        "summary": "Get products for a user",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "User ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User's products found"
+          },
+          "500": {
+            "description": "Error fetching products"
+          }
+        }
+      }
+    },
+    "/cache/save": {
+      "post": {
+        "summary": "Save contents to cache",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "contents": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contents saved to cache"
+          },
+          "500": {
+            "description": "Failed to save to cache"
+          }
+        }
+      }
+    },
+    "/cache/delete": {
+      "delete": {
+        "summary": "Delete a cache entry",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "User ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cache entry deleted"
+          },
+          "400": {
+            "description": "Failed to delete cache entry"
+          }
+        }
+      }
+    },
+    "/updatable/all": {
+      "get": {
+        "summary": "Get all updatable clients",
+        "responses": {
+          "200": {
+            "description": "Clients retrieved"
+          },
+          "404": {
+            "description": "No clients found"
+          }
+        }
+      }
+    },
+    "/updatable/add": {
+      "post": {
+        "summary": "Add a new updatable client",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Client added"
+          },
+          "400": {
+            "description": "Failed to add client"
+          }
+        }
+      }
+    },
+    "/updatable/delete": {
+      "delete": {
+        "summary": "Delete an updatable client",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "User ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Client deleted"
+          },
+          "400": {
+            "description": "Failed to delete client"
+          }
+        }
+      }
+    },
+    "/updatable/update": {
+      "put": {
+        "summary": "Update an updatable client",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "string"
+                },
+                "contents": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Client updated"
+          },
+          "400": {
+            "description": "Failed to update client"
+          }
+        }
+      }
+    },
+    "/updatable/search": {
+      "get": {
+        "summary": "Search for an updatable client",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "User ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Client found"
+          },
+          "404": {
+            "description": "Client not found"
+          }
+        }
+      }
+    },
+    "/api/ping/{server}": {
+      "get": {
+        "summary": "Ping a server",
+        "parameters": [
+          {
+            "name": "server",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Server to ping"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping successful"
+          },
+          "500": {
+            "description": "Failed to ping"
+          }
+        }
+      }
+    },
+    "/api/usage": {
+      "get": {
+        "summary": "Check system usage",
+        "responses": {
+          "200": {
+            "description": "Usage details retrieved"
+          }
+        }
+      }
+    }
+  }
+}
